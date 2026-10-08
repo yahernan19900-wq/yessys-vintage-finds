@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Yessy's Vintage Finds</title>
 <meta name="description" content="Victorian digital stickers and coloring books: 130 die-cut designs in seven collections, plus line-art coloring books.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +25,9 @@
 :root[data-theme="dark"]{--paper:#1b1416;--paper-deep:#130d0f;--card:#251b1d;--ink:#efe3cf;--ink-soft:#bcaa93;--oxblood:#cf7480;--gilt:#d4ae62;--verdigris:#8cbcab;--rule:rgba(239,227,207,.16);--shadow:rgba(0,0,0,.5);--veil:rgba(0,0,0,.72);color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:1.125rem;line-height:1.6;padding-inline:16px;
   background-image:radial-gradient(ellipse at 50% -10%,color-mix(in srgb,var(--gilt) 10%,transparent),transparent 60%)}
@@ -238,6 +246,9 @@ footer{border-top:1px solid var(--rule);margin-top:40px;padding-block:26px 40px;
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.die{transform:none}}
 </style>
+</head>
+<body>
+
 
 <header class="top">
   <div class="wrap">
@@ -531,3 +542,6 @@ $("#cCo").textContent=`${CATALOG.length} line-art books from ${fmt(SHOP.bookPric
 $("#coThumb").src=CATALOG[2].pages[1].img;
 renderStickers();renderBooks();refreshBasket();
 </script>
+
+</body>
+</html>
