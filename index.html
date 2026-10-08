@@ -1,0 +1,533 @@
+<title>Yessy's Vintage Finds</title>
+<meta name="description" content="Victorian digital stickers and coloring books: 130 die-cut designs in seven collections, plus line-art coloring books.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a Victorian stationer's — engraved masthead, two shop counters (stickers / coloring books), drawer-label collection index, die-cut album grid, a ledger-style basket */
+:root{
+  --paper:#efe6d6; --paper-deep:#e3d5bd; --card:#f8f2e7;
+  --ink:#2a1a1c; --ink-soft:#5d4848;
+  --oxblood:#6e1f2a; --gilt:#9a7430; --verdigris:#3f6b5e;
+  --rule:rgba(42,26,28,.2); --shadow:rgba(42,26,28,.18); --veil:rgba(24,14,16,.62);
+  --font-display:"IM Fell English",Georgia,"Times New Roman",serif;
+  --font-sc:"IM Fell English SC","IM Fell English",Georgia,serif;
+  --font-body:"EB Garamond",Garamond,Georgia,serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#1b1416;--paper-deep:#130d0f;--card:#251b1d;--ink:#efe3cf;--ink-soft:#bcaa93;--oxblood:#cf7480;--gilt:#d4ae62;--verdigris:#8cbcab;--rule:rgba(239,227,207,.16);--shadow:rgba(0,0,0,.5);--veil:rgba(0,0,0,.72);color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#1b1416;--paper-deep:#130d0f;--card:#251b1d;--ink:#efe3cf;--ink-soft:#bcaa93;--oxblood:#cf7480;--gilt:#d4ae62;--verdigris:#8cbcab;--rule:rgba(239,227,207,.16);--shadow:rgba(0,0,0,.5);--veil:rgba(0,0,0,.72);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:1.125rem;line-height:1.6;padding-inline:16px;
+  background-image:radial-gradient(ellipse at 50% -10%,color-mix(in srgb,var(--gilt) 10%,transparent),transparent 60%)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gilt);outline-offset:3px}
+.wrap{max-width:1200px;margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;text-wrap:balance;margin:0}
+.eyebrow{font-family:var(--font-sc);color:var(--oxblood);letter-spacing:.14em;font-size:.92rem}
+.price{font-variant-numeric:tabular-nums lining-nums;font-family:var(--font-body);font-weight:500}
+
+/* masthead */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--paper) 93%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule);margin-inline:-16px;padding:10px 16px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap}
+.brand{font-family:var(--font-display);font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.brand svg{width:26px;height:26px;color:var(--gilt);flex:none}
+.top nav{display:flex;gap:6px 20px;flex-wrap:wrap;align-items:center}
+.top nav a{font-family:var(--font-sc);letter-spacing:.08em;text-decoration:none;font-size:1rem;color:var(--ink-soft)}
+.top nav a:hover{color:var(--oxblood)}
+.basket-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sc);letter-spacing:.08em;font-size:1rem;border:1px solid var(--oxblood);color:var(--oxblood);padding:5px 12px}
+.basket-btn:hover{background:var(--oxblood);color:var(--paper)}
+.basket-btn svg{width:18px;height:18px}
+.basket-btn .n{font-family:var(--font-body);font-variant-numeric:tabular-nums;min-width:1.2em;text-align:center}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-sc);letter-spacing:.1em;font-size:.98rem;padding:11px 20px;border:1px solid var(--oxblood);background:var(--oxblood);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn:hover{background:transparent;color:var(--oxblood)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{border-color:var(--oxblood);color:var(--oxblood)}
+.btn.sm{padding:6px 12px;font-size:.85rem}
+.btn[aria-pressed="true"]{background:var(--verdigris);border-color:var(--verdigris);color:var(--paper)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:48px 28px}
+.hero>*{min-width:0}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;margin-block:12px 18px}
+.hero h1 em{color:var(--oxblood)}
+.hero p{max-width:34em;color:var(--ink-soft);margin:0 0 24px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;padding-top:18px;border-top:1px solid var(--rule)}
+.facts div{display:grid}
+.facts b{font-family:var(--font-display);font-weight:400;font-size:1.9rem;line-height:1;font-variant-numeric:lining-nums}
+.facts span{font-family:var(--font-sc);letter-spacing:.1em;font-size:.82rem;color:var(--ink-soft)}
+.cameo{position:relative;justify-self:center;width:min(100%,400px);aspect-ratio:4/5;max-width:100%}
+.cameo .oval{position:absolute;inset:0;border-radius:50%;overflow:hidden;border:10px solid var(--card);
+  box-shadow:0 0 0 2px var(--gilt),0 0 0 9px var(--paper),0 0 0 10px var(--gilt),0 24px 50px var(--shadow);background:var(--paper-deep)}
+.cameo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.cameo figcaption{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);background:var(--paper);border:1px solid var(--gilt);padding:3px 14px;font-family:var(--font-sc);font-size:.82rem;letter-spacing:.1em;white-space:nowrap;color:var(--ink-soft)}
+
+.flourish{display:flex;align-items:center;gap:14px;color:var(--gilt);margin-block:36px}
+.flourish::before,.flourish::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gilt),transparent)}
+.flourish svg{width:60px;height:18px}
+
+/* counters (shop switch) */
+.counters{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-block:8px 8px}
+.counter{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;text-decoration:none;padding:20px;border:1px solid var(--rule);background:var(--card);transition:border-color .2s,transform .2s}
+.counter:hover{border-color:var(--gilt);transform:translateY(-2px)}
+.counter>*{min-width:0}
+.counter .thumb{width:84px;height:84px;border-radius:50%;overflow:hidden;border:2px solid var(--gilt);background:#fff}
+.counter .thumb img{width:100%;height:100%;object-fit:cover}
+.counter h3{font-size:1.6rem;line-height:1.1}
+.counter p{margin:2px 0 0;color:var(--ink-soft);font-size:1rem}
+
+/* section heads */
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px 24px;flex-wrap:wrap;margin-bottom:22px}
+.section-head>div{min-width:0}
+.section-head h2{font-size:clamp(2rem,4vw,3rem);line-height:1.05}
+.section-head p{margin:6px 0 0;color:var(--ink-soft);max-width:38em}
+.search{display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink-soft);padding:4px 2px;min-width:0}
+.search svg{width:18px;height:18px;color:var(--ink-soft);flex:none}
+.search input{all:unset;font-family:var(--font-body);font-size:1.05rem;width:220px;max-width:100%}
+.search input::placeholder{color:var(--ink-soft);font-style:italic}
+
+/* drawers */
+.drawers{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:26px}
+.drawer{all:unset;cursor:pointer;display:grid;gap:2px;padding:18px 14px 12px;background:var(--card);border:1px solid var(--rule);position:relative;transition:transform .2s,border-color .2s}
+.drawer::after{content:"";position:absolute;left:50%;top:7px;width:30px;height:6px;transform:translateX(-50%);border-radius:0 0 8px 8px;border:1px solid var(--gilt);border-top:0}
+.drawer:hover{transform:translateY(-2px);border-color:var(--gilt)}
+.drawer:focus-visible{outline:2px solid var(--gilt);outline-offset:3px}
+.drawer .no{font-family:var(--font-sc);font-size:.75rem;letter-spacing:.14em;color:var(--gilt)}
+.drawer .nm{font-family:var(--font-display);font-size:1.15rem;line-height:1.15}
+.drawer .ct{font-size:.88rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.drawer[aria-pressed="true"]{background:var(--oxblood);border-color:var(--oxblood);color:var(--paper)}
+.drawer[aria-pressed="true"] .ct,.drawer[aria-pressed="true"] .no{color:color-mix(in srgb,var(--paper) 78%,transparent)}
+.drawer[aria-pressed="true"]::after{border-color:var(--paper)}
+
+/* plate */
+.plate{display:grid;grid-template-columns:1fr auto;gap:12px 20px;align-items:center;border-block:1px solid var(--rule);padding-block:14px;margin-bottom:26px}
+.plate>div{min-width:0}
+.plate h3{font-size:1.75rem}
+.plate p{margin:2px 0 0;color:var(--ink-soft);max-width:44em}
+.plate .side{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.plate .tally{font-family:var(--font-sc);letter-spacing:.1em;color:var(--ink-soft);white-space:nowrap}
+.plate .save{font-size:.92rem;color:var(--verdigris);font-style:italic}
+
+/* album */
+.album{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:34px 24px}
+.sticker{display:grid;gap:10px;align-content:start;min-width:0}
+.die{all:unset;cursor:zoom-in;position:relative;display:block;aspect-ratio:1;background:#fff;padding:9px;border-radius:14px;
+  box-shadow:0 1px 0 rgba(0,0,0,.05),0 10px 22px var(--shadow);transform:rotate(var(--tilt,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.die:hover,.die:focus-visible{transform:rotate(0) translateY(-5px) scale(1.02);box-shadow:0 18px 34px var(--shadow)}
+.die:focus-visible{outline:2px solid var(--gilt);outline-offset:4px}
+.die img{width:100%;height:100%;object-fit:contain;display:block;border-radius:6px}
+.die .peel{position:absolute;right:0;bottom:0;width:32px;height:32px;border-radius:0 0 14px 0;background:linear-gradient(135deg,transparent 50%,#e7e0d3 50%,#fff 78%);box-shadow:-2px -2px 4px rgba(0,0,0,.08);opacity:0;transition:opacity .3s}
+.die:hover .peel{opacity:1}
+.sticker .kind{font-family:var(--font-sc);font-size:.76rem;letter-spacing:.12em;color:var(--oxblood)}
+.sticker h4{font-size:1.18rem;line-height:1.2;margin-top:1px}
+.sticker .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.empty{grid-column:1/-1;text-align:center;padding:40px 16px;color:var(--ink-soft);border:1px dashed var(--rule)}
+.more{display:flex;justify-content:center;margin-top:34px}
+
+/* coloring books */
+.books{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:34px 26px}
+.book{display:grid;gap:12px;align-content:start;min-width:0}
+.cover{all:unset;cursor:pointer;position:relative;display:block;aspect-ratio:8.5/11;background:var(--bookc,#6e1f2a);padding:16px;box-shadow:inset 6px 0 0 rgba(0,0,0,.18),inset 8px 0 0 rgba(255,255,255,.08),0 14px 28px var(--shadow);transition:transform .3s}
+.cover:hover,.cover:focus-visible{transform:translateY(-5px) rotate(-.6deg)}
+.cover .inner{height:100%;border:1px solid rgba(240,214,150,.7);outline:1px solid rgba(240,214,150,.35);outline-offset:4px;display:grid;grid-template-rows:auto 1fr auto;gap:10px;padding:14px 12px;text-align:center;color:#f3e3bf}
+.cover .t{font-family:var(--font-display);font-size:1.45rem;line-height:1.05}
+.cover .sub{font-family:var(--font-sc);letter-spacing:.14em;font-size:.72rem;opacity:.85}
+.cover .art{background:#fffdf8;border-radius:50%/42%;overflow:hidden;margin-inline:8%;display:grid;place-items:center;border:2px solid rgba(240,214,150,.8)}
+.cover .art img{width:86%;height:86%;object-fit:contain;filter:sepia(.25)}
+.book .meta{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.book p{margin:0;color:var(--ink-soft);font-size:1rem}
+.book .acts{display:flex;gap:8px;flex-wrap:wrap}
+.library{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;margin-top:36px;padding:22px;border:1px solid var(--gilt);background:var(--card)}
+.library>*{min-width:0}
+.library .stack{display:flex}
+.library .stack span{width:44px;height:58px;margin-left:-14px;background:var(--bookc);border:1px solid rgba(240,214,150,.6);box-shadow:2px 3px 6px var(--shadow)}
+.library .stack span:first-child{margin-left:0}
+.library h3{font-size:1.6rem}
+.library p{margin:2px 0 0;color:var(--ink-soft)}
+
+/* how / about */
+.ledger{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);background:var(--card);margin-block:22px 8px}
+.ledger>div{padding:24px 22px;border-right:1px solid var(--rule);min-width:0}
+.ledger>div:last-child{border-right:0}
+.ledger .step{font-family:var(--font-sc);color:var(--gilt);letter-spacing:.12em;font-size:.84rem}
+.ledger h3{font-size:1.4rem;margin:4px 0 6px}
+.ledger p{margin:0;color:var(--ink-soft);font-size:1rem}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;padding-block:20px;align-items:start}
+.about>*{min-width:0}
+.about h2{font-size:clamp(2rem,4vw,3rem);line-height:1.08}
+.about .body p{margin:0 0 1em;max-width:36em}
+.about .body p:first-child::first-letter{font-family:var(--font-display);float:left;font-size:4.2em;line-height:.8;padding:6px 10px 0 0;color:var(--oxblood)}
+.signoff{font-family:var(--font-display);font-style:italic;font-size:1.3rem;color:var(--oxblood)}
+footer{border-top:1px solid var(--rule);margin-top:40px;padding-block:26px 40px;display:flex;justify-content:space-between;gap:12px 16px;flex-wrap:wrap;color:var(--ink-soft);font-size:.96rem}
+.mail{display:inline-flex;gap:10px;align-items:center;flex-wrap:wrap}
+.mail code{font-family:var(--font-body);user-select:all;color:var(--ink)}
+
+/* overlays */
+.veil{position:fixed;inset:0;z-index:50;background:var(--veil)}
+.viewer{position:fixed;inset:0;z-index:51;display:grid;place-items:center;padding:16px;pointer-events:none}
+.viewer .card{pointer-events:auto;background:var(--paper);max-width:900px;width:100%;max-height:calc(100% - 24px);overflow:auto;display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--gilt);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.viewer .card>*{min-width:0}
+.viewer .pic{background:var(--paper-deep);padding:22px;display:grid;place-items:center}
+.viewer .pic .frame{background:#fff;padding:10px;border-radius:14px;box-shadow:0 10px 24px var(--shadow);width:100%}
+.viewer .pic img{width:100%;height:auto;max-height:62vh;object-fit:contain;display:block}
+.viewer .txt{padding:26px 26px 24px;display:grid;gap:10px;align-content:start}
+.viewer h3{font-size:2rem;line-height:1.08}
+.viewer dl{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;margin:6px 0 4px;font-size:1rem}
+.viewer dt{font-family:var(--font-sc);letter-spacing:.08em;color:var(--ink-soft)}
+.viewer dd{margin:0}
+.viewer .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.viewer .nav{display:flex;justify-content:space-between;gap:10px;margin-top:6px;border-top:1px solid var(--rule);padding-top:12px}
+.linkish{all:unset;cursor:pointer;font-family:var(--font-sc);letter-spacing:.1em;font-size:.86rem;color:var(--ink-soft)}
+.linkish:hover{color:var(--oxblood)}
+.pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pages figure{margin:0;background:#fff;padding:10px;box-shadow:0 6px 14px var(--shadow)}
+.pages img{width:100%;aspect-ratio:8.5/11;object-fit:contain;display:block}
+.pages figcaption{font-size:.85rem;color:#5d4848;text-align:center;margin-top:4px}
+.viewer .card.wide{grid-template-columns:1fr;max-width:760px}
+
+/* basket */
+.basket{position:fixed;top:0;right:0;bottom:0;z-index:52;width:min(420px,100%);background:var(--paper);border-left:1px solid var(--gilt);display:grid;grid-template-rows:auto 1fr auto;box-shadow:-20px 0 40px rgba(0,0,0,.25);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.basket header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--rule)}
+.basket header h3{font-size:1.6rem}
+.basket .lines{overflow:auto;padding:8px 20px}
+.line{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding-block:12px;border-bottom:1px dotted var(--rule)}
+.line>*{min-width:0}
+.line .t{width:56px;height:56px;background:#fff;border-radius:8px;padding:3px;box-shadow:0 2px 6px var(--shadow)}
+.line .t img{width:100%;height:100%;object-fit:contain}
+.line .t.bk{background:var(--bookc);border-radius:2px}
+.line .nm{font-family:var(--font-display);font-size:1.08rem;line-height:1.2}
+.line .k{font-size:.85rem;color:var(--ink-soft)}
+.line .r{display:grid;justify-items:end;gap:2px}
+.basket footer{margin:0;padding:16px 20px 20px;border-top:1px solid var(--rule);display:grid;gap:10px;color:var(--ink);font-size:1rem}
+.sum{display:flex;justify-content:space-between;align-items:baseline}
+.sum b{font-family:var(--font-display);font-weight:400;font-size:1.6rem}
+.note{font-size:.92rem;color:var(--ink-soft);margin:0}
+.order{white-space:pre-wrap;font-family:var(--font-body);font-size:.92rem;background:var(--card);border:1px solid var(--rule);padding:10px;max-height:160px;overflow:auto;user-select:all}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 18px;font-family:var(--font-sc);letter-spacing:.08em;font-size:.9rem;z-index:60;max-width:calc(100% - 32px);text-align:center}
+
+@media (max-width:860px){
+  .hero,.about{grid-template-columns:1fr;gap:36px}
+  .hero{padding-block:28px 8px}
+  .cameo{width:min(100%,300px)}
+  .counters{grid-template-columns:1fr}
+  .ledger{grid-template-columns:1fr}
+  .ledger>div{border-right:0;border-bottom:1px solid var(--rule)}
+  .ledger>div:last-child{border-bottom:0}
+  .viewer .card{grid-template-columns:1fr}
+  .plate{grid-template-columns:1fr}
+  .plate .side{justify-content:flex-start}
+  .library{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .album{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 14px}
+  .sticker h4{font-size:1.02rem}
+  .sticker .row{flex-direction:column;align-items:stretch}
+  .drawers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .books{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 14px}
+  .cover{padding:9px}.cover .inner{padding:8px 6px}.cover .t{font-size:1.05rem}
+  .book .acts .btn{flex:1}
+  .search input{width:100%}
+  .top nav a.hide-sm{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.die{transform:none}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Yessy's Vintage Finds, home">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><ellipse cx="16" cy="16" rx="10" ry="13"/><ellipse cx="16" cy="16" rx="6.5" ry="9"/><path d="M16 3v3M16 26v3M6 16H3M29 16h-3"/></svg>
+      Yessy's Vintage Finds
+    </a>
+    <nav aria-label="Main">
+      <a href="#stickers">Stickers</a>
+      <a href="#coloring">Coloring Books</a>
+      <a href="#about" class="hide-sm">Our story</a>
+      <button class="basket-btn" id="openBasket" type="button" aria-label="Open basket">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 9h16l-1.5 11h-13z"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/></svg>
+        Basket <span class="n" id="count">0</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">A tiny paper shop for big nostalgia</div>
+      <h1>Collect a little <em>romance.</em></h1>
+      <p>Victorian die-cut stickers and line-art coloring books for journals, letters, planners and quiet afternoons. Everything is digital: buy, download, print at home.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#stickers">Shop stickers</a>
+        <a class="btn ghost" href="#coloring">Shop coloring books</a>
+      </div>
+      <div class="facts" id="facts"></div>
+    </div>
+    <figure class="cameo">
+      <div class="oval"><img alt="Victorian woman in midnight-blue silk beside a lantern-lit Venetian canal" src="img/venetian-twilight-in-sapphire-silk.webp"></div>
+      <figcaption>Plate I · Venetian Twilight</figcaption>
+    </figure>
+  </section>
+
+  <div class="counters">
+    <a class="counter" href="#stickers"><div class="thumb"><img alt="" src="img/rose-cameo-frame.webp"></div><div><div class="eyebrow">Counter I</div><h3>The Sticker Shop</h3><p id="cSt"></p></div></a>
+    <a class="counter" href="#coloring"><div class="thumb"><img alt="" id="coThumb" src=""></div><div><div class="eyebrow">Counter II</div><h3>The Coloring Book Shop</h3><p id="cCo"></p></div></a>
+  </div>
+
+  <div class="flourish" aria-hidden="true"><svg viewBox="0 0 60 18" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 9c8 0 10-7 18-7s6 7 10 7 2-7 10-7 10 7 18 7M2 9c8 0 10 7 18 7s6-7 10-7 2 7 10 7 10-7 18-7"/><circle cx="30" cy="9" r="2" fill="currentColor"/></svg></div>
+
+  <section id="stickers">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Counter I · Digital stickers</div>
+        <h2>The Sticker Shop</h2>
+        <p>Every design is a high-resolution PNG with a clean die-cut edge. Open a drawer to browse one collection, or take the whole drawer at a reduced price.</p>
+      </div>
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input id="q" type="search" placeholder="Search cameo, Paris, perfume…" aria-label="Search stickers"></label>
+    </div>
+    <div class="drawers" id="drawers" role="group" aria-label="Sticker collections"></div>
+    <div class="plate" id="plate"></div>
+    <div class="album" id="album"></div>
+    <div class="more" id="moreWrap" hidden><button class="btn ghost" id="more" type="button">Show more stickers</button></div>
+  </section>
+
+  <div class="flourish" aria-hidden="true"><svg viewBox="0 0 60 18" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 9c8 0 10-7 18-7s6 7 10 7 2-7 10-7 10 7 18 7M2 9c8 0 10 7 18 7s6-7 10-7 2 7 10 7 10-7 18-7"/><circle cx="30" cy="9" r="2" fill="currentColor"/></svg></div>
+
+  <section id="coloring">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Counter II · Printable coloring books</div>
+        <h2>The Coloring Book Shop</h2>
+        <p>Each sticker collection, redrawn as engraving-style line art. One page per design, letter size, delivered as a printable PDF.</p>
+      </div>
+    </div>
+    <div class="books" id="books"></div>
+    <div class="library" id="library"></div>
+  </section>
+
+  <div class="flourish" aria-hidden="true"><svg viewBox="0 0 60 18" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 9c8 0 10-7 18-7s6 7 10 7 2-7 10-7 10 7 18 7M2 9c8 0 10 7 18 7s6-7 10-7 2 7 10 7 10-7 18-7"/><circle cx="30" cy="9" r="2" fill="currentColor"/></svg></div>
+
+  <section id="how">
+    <div class="eyebrow">Digital goods, no post required</div>
+    <h2 style="font-size:clamp(2rem,4vw,3rem)">From basket to journal page</h2>
+    <div class="ledger">
+      <div><div class="step">First</div><h3>Fill your basket</h3><p>Single stickers, whole collections, or coloring books. Mix freely.</p></div>
+      <div><div class="step">Then</div><h3>Download</h3><p>Stickers arrive as 300 dpi PNGs; coloring books as letter-size PDFs.</p></div>
+      <div><div class="step">Finally</div><h3>Print and keep</h3><p>Use matte or glossy sticker paper, or drop them into GoodNotes and digital planners.</p></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div>
+      <div class="eyebrow">Our story</div>
+      <h2>A little nostalgia. A little imagination.</h2>
+    </div>
+    <div class="body">
+      <p>Our story begins with a love of vintage beauty, imaginative places, and the joy of making something personal. Romantic gardens, Victorian architecture, travel, and treasured details from the past shape every digital sticker and coloring book we make.</p>
+      <p>The collections gather dreamy landscapes, elegant gowns, ornate jewelry, and nostalgic collages. Whether you're decorating a journal, personalizing a planner, or spending a quiet afternoon coloring, each design offers a small escape from the everyday.</p>
+      <p>Everything is digital, ready to download, print, and enjoy at your own pace. No shipping, just creative possibilities.</p>
+      <p class="signoff">A story you make your own.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Yessy's Vintage Finds · Original AI-assisted artwork · For personal use</span>
+    <span class="mail"><code id="mail">hello@yessysvintage.com</code><button class="btn ghost sm" id="copyMail" type="button">Copy email</button></span>
+  </footer>
+</main>
+
+<div class="veil" id="veil" hidden></div>
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle"><div class="card" id="vCard"></div></div>
+<aside class="basket" id="basket" hidden role="dialog" aria-modal="true" aria-labelledby="bTitle">
+  <header><h3 id="bTitle">Your basket</h3><button class="linkish" id="closeBasket" type="button">Close ✕</button></header>
+  <div class="lines" id="lines"></div>
+  <footer id="bFoot"></footer>
+</aside>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+/* ============ SHOP SETTINGS — edit these ============ */
+const SHOP = {
+  currency: "USD",
+  stickerPrice: 2.50,        // single die-cut sticker
+  sheetPrice: 4.50,          // full sticker sheets
+  collectionDiscount: 0.40,  // whole-drawer pack: 40% off the singles total
+  bookPrice: 9.00,           // coloring books under 20 pages
+  bigBookPrice: 12.00,       // coloring books with 20+ pages
+  libraryPrice: 39.00,       // every coloring book
+  checkoutUrl: "",           // paste a Shopify / Stripe / Etsy checkout link here when ready
+  email: "hello@yessysvintage.com"
+};
+const BOOK_COLORS = {"grand-tour":"#2f4a63","velvet-snow":"#6e1f2a","jewel-box":"#2f5a4b","vanity":"#7a3c55","gardens":"#4f5e33","winter-frames":"#3d3a66","ephemera":"#80603a"};
+const CATALOG = [{"id":"grand-tour","name":"The Grand Tour","kind":"Travel collage","blurb":"Ladies and gentlemen abroad in Venice, Paris, Prague, Vienna, Kyoto and the Riviera.","items":[{"id":"venetian-twilight-in-sapphire-silk","name":"Venetian Twilight in Sapphire Silk","desc":"Midnight silk beside a lantern-lit Venetian canal.","img":"img/venetian-twilight-in-sapphire-silk.webp","w":507,"h":760,"sheet":false},{"id":"the-lavender-letter","name":"The Lavender Letter","desc":"A violet-clad traveler reading a letter by the glasshouse.","img":"img/the-lavender-letter.webp","w":507,"h":760,"sheet":false},{"id":"azulejo-courtyard-in-teal","name":"Azulejo Courtyard in Teal","desc":"Teal silk framed by painted tile, citrus and bougainvillea.","img":"img/azulejo-courtyard-in-teal.webp","w":507,"h":760,"sheet":false},{"id":"proven-al-lavender-terrace","name":"Provençal Lavender Terrace","desc":"A lilac gown and straw hat among blooming lavender terraces.","img":"img/proven-al-lavender-terrace.webp","w":507,"h":760,"sheet":false},{"id":"winter-ch-teau-garden","name":"Winter Château Garden","desc":"An ivory gown and burgundy cape in a snowy château garden.","img":"img/winter-ch-teau-garden.webp","w":507,"h":760,"sheet":false},{"id":"ruby-gown-in-prague","name":"Ruby Gown in Prague","desc":"Crimson velvet above Prague's spires at golden hour.","img":"img/ruby-gown-in-prague.webp","w":507,"h":760,"sheet":false},{"id":"gentleman-on-the-riviera","name":"Gentleman on the Riviera","desc":"A linen-suited gentleman on a lemon-tree terrace by the sea.","img":"img/gentleman-on-the-riviera.webp","w":507,"h":760,"sheet":false},{"id":"gentleman-in-prague-palace-gardens","name":"Gentleman in Prague Palace Gardens","desc":"A frock-coated reader above the palace gardens at sunset.","img":"img/gentleman-in-prague-palace-gardens.webp","w":507,"h":760,"sheet":false},{"id":"gentleman-in-a-proven-al-garden","name":"Gentleman in a Provençal Garden","desc":"Cream linen, lavender and a pocket watch in Provence.","img":"img/gentleman-in-a-proven-al-garden.webp","w":695,"h":760,"sheet":false},{"id":"gentleman-in-a-viennese-rose-garden","name":"Gentleman in a Viennese Rose Garden","desc":"A brown morning coat among Vienna's rose parterres.","img":"img/gentleman-in-a-viennese-rose-garden.webp","w":507,"h":760,"sheet":false},{"id":"rose-garden-in-paris","name":"Rose Garden in Paris","desc":"Pink ruffles, rose arbors and the Eiffel Tower at dusk.","img":"img/rose-garden-in-paris.webp","w":507,"h":760,"sheet":false},{"id":"kyoto-garden-traveler","name":"Kyoto Garden Traveler","desc":"A plum dress beside an autumn garden and koi pond.","img":"img/kyoto-garden-traveler.webp","w":507,"h":760,"sheet":false},{"id":"riviera-garden-romance","name":"Riviera Garden Romance","desc":"An ivory parasol gown above a sunlit Mediterranean terrace.","img":"img/riviera-garden-romance.webp","w":507,"h":760,"sheet":false},{"id":"emerald-lakeside-garden","name":"Emerald Lakeside Garden","desc":"Emerald velvet, an alpine lake, roses and a cameo.","img":"img/emerald-lakeside-garden.webp","w":507,"h":760,"sheet":false}],"pages":[{"name":"Ruby Gown in Prague","img":"color/ruby-gown-in-prague.webp"},{"name":"Venetian Twilight in Sapphire Silk","img":"color/venetian-twilight-in-sapphire-silk.webp"},{"name":"Gentleman in a Viennese Rose Garden","img":"color/gentleman-in-a-viennese-rose-garden.webp"},{"name":"Azulejo Courtyard in Teal","img":"color/azulejo-courtyard-in-teal.webp"}],"pageCount":14},{"id":"velvet-snow","name":"Velvet & Snow","kind":"Winter fashion","blurb":"Emerald lantern portraits, sapphire carriages, rose parasols and winter brides.","items":[{"id":"golden-lantern-portrait","name":"Golden Lantern Portrait","desc":"A Victorian silhouette with a glowing lantern and gilt details.","img":"img/golden-lantern-portrait.webp","w":760,"h":760,"sheet":false},{"id":"winter-garden-muse","name":"Winter Garden Muse","desc":"An embellished emerald gown among frost and evergreens.","img":"img/winter-garden-muse.webp","w":760,"h":760,"sheet":false},{"id":"lantern-keeper","name":"Lantern Keeper","desc":"A green gown carrying a lantern through snowy branches.","img":"img/lantern-keeper.webp","w":760,"h":760,"sheet":false},{"id":"emerald-christmas-lady","name":"Emerald Christmas Lady","desc":"Emerald velvet, gold embroidery and candlelight.","img":"img/emerald-christmas-lady.webp","w":760,"h":760,"sheet":false},{"id":"burgundy-velvet-gown","name":"Burgundy Velvet Gown","desc":"A sweeping burgundy gown with a crisp white sticker edge.","img":"img/burgundy-velvet-gown.webp","w":760,"h":760,"sheet":false},{"id":"winter-promenade","name":"Winter Promenade","desc":"A back-facing velvet dress walking a snowy woodland lane.","img":"img/winter-promenade.webp","w":760,"h":760,"sheet":false},{"id":"burgundy-bustle","name":"Burgundy Bustle","desc":"Layered velvet ruffles framed by frosted branches.","img":"img/burgundy-bustle.webp","w":760,"h":760,"sheet":false},{"id":"snowfall-silhouette","name":"Snowfall Silhouette","desc":"A graceful rear view in sparkling garnet velvet.","img":"img/snowfall-silhouette.webp","w":760,"h":760,"sheet":false},{"id":"sapphire-carriage-lady","name":"Sapphire Carriage Lady","desc":"Sapphire velvet and lace beside a lantern-lit carriage.","img":"img/sapphire-carriage-lady.webp","w":760,"h":760,"sheet":false},{"id":"midnight-sleigh-ride","name":"Midnight Sleigh Ride","desc":"A bonneted lady and her horses in a snowy wood.","img":"img/midnight-sleigh-ride.webp","w":760,"h":760,"sheet":false},{"id":"carriage-lantern-night","name":"Carriage Lantern Night","desc":"Silver brocade glowing beside carriage lanterns.","img":"img/carriage-lantern-night.webp","w":760,"h":760,"sheet":false},{"id":"sapphire-velvet-train","name":"Sapphire Velvet Train","desc":"A long velvet train sweeping across the snow.","img":"img/sapphire-velvet-train.webp","w":760,"h":760,"sheet":false},{"id":"rose-parasol-medallion","name":"Rose Parasol Medallion","desc":"A round winter scene with a pink parasol gown.","img":"img/rose-parasol-medallion.webp","w":760,"h":760,"sheet":false},{"id":"pink-parasol-in-snow","name":"Pink Parasol in Snow","desc":"Rose taffeta and white lace in a snowy garden.","img":"img/pink-parasol-in-snow.webp","w":760,"h":760,"sheet":false},{"id":"rose-taffeta-stroll","name":"Rose Taffeta Stroll","desc":"Ruffled pink silk with a folded parasol.","img":"img/rose-taffeta-stroll.webp","w":760,"h":760,"sheet":false},{"id":"winter-parasol-promenade","name":"Winter Parasol Promenade","desc":"A pink gown and lace parasol among frosted firs.","img":"img/winter-parasol-promenade.webp","w":760,"h":760,"sheet":false},{"id":"frosted-lace","name":"Frosted Lace","desc":"A white lace cloak glowing among crystal birches.","img":"img/frosted-lace.webp","w":760,"h":760,"sheet":false},{"id":"ivory-procession","name":"Ivory Procession","desc":"A crowned bride walking beneath snow-heavy trees.","img":"img/ivory-procession.webp","w":760,"h":760,"sheet":false},{"id":"birchwood-bride","name":"Birchwood Bride","desc":"A long embroidered cape in a pale winter grove.","img":"img/birchwood-bride.webp","w":760,"h":760,"sheet":false},{"id":"winter-bride","name":"Winter Bride","desc":"Ivory satin and a lace cape among snowy birches.","img":"img/winter-bride.webp","w":760,"h":760,"sheet":false}],"pages":[{"name":"Golden Lantern Portrait","img":"color/golden-lantern-portrait.webp"},{"name":"Winter Promenade","img":"color/winter-promenade.webp"},{"name":"Carriage Lantern Night","img":"color/carriage-lantern-night.webp"},{"name":"Winter Parasol Promenade","img":"color/winter-parasol-promenade.webp"}],"pageCount":20},{"id":"jewel-box","name":"The Jewel Box","kind":"Heirloom jewelry","blurb":"Velvet cases, lockets, cameos, crescent charms, emerald brooches and pearl garlands.","items":[{"id":"ruby-jewelry-case","name":"Ruby Jewelry Case","desc":"A burgundy velvet box with gold earrings and pearls.","img":"img/ruby-jewelry-case.webp","w":760,"h":760,"sheet":false},{"id":"pearl-keepsake","name":"Pearl Keepsake","desc":"A petite red case holding a gold-and-pearl pair.","img":"img/pearl-keepsake.webp","w":760,"h":760,"sheet":false},{"id":"golden-heirloom-set","name":"Golden Heirloom Set","desc":"An open jewel box with a brooch and pearl drops.","img":"img/golden-heirloom-set.webp","w":760,"h":760,"sheet":false},{"id":"crimson-jewelry-box","name":"Crimson Jewelry Box","desc":"A ruby-toned case with a gold brooch.","img":"img/crimson-jewelry-box.webp","w":760,"h":760,"sheet":false},{"id":"rose-cameo-frame","name":"Rose Cameo Frame","desc":"An ivory cameo framed by deep-red roses and gold.","img":"img/rose-cameo-frame.webp","w":760,"h":760,"sheet":false},{"id":"burgundy-cameo","name":"Burgundy Cameo","desc":"A profile cameo in a wreath of velvet roses.","img":"img/burgundy-cameo.webp","w":760,"h":760,"sheet":false},{"id":"rosewood-medallion","name":"Rosewood Medallion","desc":"A sculpted ivory portrait in a rose frame.","img":"img/rosewood-medallion.webp","w":760,"h":760,"sheet":false},{"id":"gilded-rose-cameo","name":"Gilded Rose Cameo","desc":"An antique cameo ringed with crimson roses.","img":"img/gilded-rose-cameo.webp","w":760,"h":760,"sheet":false},{"id":"midnight-crescent-jewel","name":"Midnight Crescent Jewel","desc":"A sapphire-and-gold crescent on midnight blue.","img":"img/midnight-crescent-jewel.webp","w":760,"h":760,"sheet":false},{"id":"sapphire-crescent-charm","name":"Sapphire Crescent Charm","desc":"A gold crescent with blue stones and dangling stars.","img":"img/sapphire-crescent-charm.webp","w":760,"h":760,"sheet":false},{"id":"royal-sapphire-crescent","name":"Royal Sapphire Crescent","desc":"Blue gems, ivory ribbon and star drops.","img":"img/royal-sapphire-crescent.webp","w":760,"h":760,"sheet":false},{"id":"starfall-crescent","name":"Starfall Crescent","desc":"A gold crescent with sapphires and hanging stars.","img":"img/starfall-crescent.webp","w":760,"h":760,"sheet":false},{"id":"sapphire-lake-locket","name":"Sapphire Lake Locket","desc":"An oval pendant holding a moonlit river.","img":"img/sapphire-lake-locket.webp","w":760,"h":760,"sheet":false},{"id":"moonlit-sapphire-pendant","name":"Moonlit Sapphire Pendant","desc":"A full moon over a winter lake and manor.","img":"img/moonlit-sapphire-pendant.webp","w":760,"h":760,"sheet":false},{"id":"blue-river-pendant","name":"Blue River Pendant","desc":"Sapphire drops around a nocturnal river scene.","img":"img/blue-river-pendant.webp","w":760,"h":760,"sheet":false},{"id":"winter-moon-medallion","name":"Winter Moon Medallion","desc":"A round blue medallion with a snowy estate.","img":"img/winter-moon-medallion.webp","w":760,"h":760,"sheet":false},{"id":"winter-cottage-locket","name":"Winter Cottage Locket","desc":"An open gold locket holding a snowy cottage.","img":"img/winter-cottage-locket.webp","w":760,"h":760,"sheet":false},{"id":"glowing-cottage-locket","name":"Glowing Cottage Locket","desc":"Twin lamplit scenes in an oval gold locket.","img":"img/glowing-cottage-locket.webp","w":760,"h":760,"sheet":false},{"id":"lamplit-locket","name":"Lamplit Locket","desc":"A blue-hour lodge glowing inside a gold case.","img":"img/lamplit-locket.webp","w":760,"h":760,"sheet":false},{"id":"forest-lodge-locket","name":"Forest Lodge Locket","desc":"A hidden woodland lodge in an engraved locket.","img":"img/forest-lodge-locket.webp","w":760,"h":760,"sheet":false},{"id":"emerald-fern-brooch","name":"Emerald Fern Brooch","desc":"Marquise emeralds set along a curling gold fern.","img":"img/emerald-fern-brooch.webp","w":760,"h":760,"sheet":false},{"id":"emerald-plume","name":"Emerald Plume","desc":"A slender gold plume of green stones.","img":"img/emerald-plume.webp","w":760,"h":760,"sheet":false},{"id":"curled-emerald-fern","name":"Curled Emerald Fern","desc":"A fiddlehead brooch in emerald and gold.","img":"img/curled-emerald-fern.webp","w":760,"h":760,"sheet":false},{"id":"emerald-spiral-brooch","name":"Emerald Spiral Brooch","desc":"An unfurling fern of emeralds and diamonds.","img":"img/emerald-spiral-brooch.webp","w":760,"h":760,"sheet":false},{"id":"pearl-pine-garland","name":"Pearl & Pine Garland","desc":"Strands of pearls and emeralds on evergreen boughs.","img":"img/pearl-pine-garland.webp","w":760,"h":760,"sheet":false},{"id":"emerald-ribbon-brooch","name":"Emerald Ribbon Brooch","desc":"A velvet bow, pearls and an emerald clasp.","img":"img/emerald-ribbon-brooch.webp","w":760,"h":760,"sheet":false},{"id":"evergreen-pearl-cascade","name":"Evergreen Pearl Cascade","desc":"Pearl ropes and emerald drops tumbling from pine.","img":"img/evergreen-pearl-cascade.webp","w":760,"h":760,"sheet":false},{"id":"frosted-emerald-corsage","name":"Frosted Emerald Corsage","desc":"Frosted pine, burgundy velvet and diamond earrings.","img":"img/frosted-emerald-corsage.webp","w":760,"h":760,"sheet":false}],"pages":[{"name":"Ruby Jewelry Case","img":"color/ruby-jewelry-case.webp"},{"name":"Gilded Rose Cameo","img":"color/gilded-rose-cameo.webp"},{"name":"Blue River Pendant","img":"color/blue-river-pendant.webp"},{"name":"Emerald Plume","img":"color/emerald-plume.webp"}],"pageCount":28},{"id":"vanity","name":"The Vanity Table","kind":"Vintage beauty","blurb":"Perfume flacons, coordinated vanity sheets, keepsake drawers and gown-filled armoires.","items":[{"id":"violet-perfume-flacon","name":"Violet Perfume Flacon","desc":"An amber bottle crowned with violets.","img":"img/violet-perfume-flacon.webp","w":760,"h":760,"sheet":false},{"id":"amber-bow-perfume","name":"Amber Bow Perfume","desc":"Amber glass tied with an ivory bow and violets.","img":"img/amber-bow-perfume.webp","w":760,"h":760,"sheet":false},{"id":"golden-violet-perfume","name":"Golden Violet Perfume","desc":"A golden flacon nestled in purple blossoms.","img":"img/golden-violet-perfume.webp","w":760,"h":760,"sheet":false},{"id":"lavender-perfume","name":"Lavender Perfume","desc":"An ornate amber flacon on a lavender ground.","img":"img/lavender-perfume.webp","w":760,"h":760,"sheet":false},{"id":"vintage-vanity-sheet","name":"Vintage Vanity Sheet","desc":"Mirrors, lipstick, perfume, pearls and keepsake boxes.","img":"img/vintage-vanity-sheet.webp","w":760,"h":760,"sheet":true},{"id":"ruby-dressing-set","name":"Ruby Dressing Set","desc":"A red-and-gold sheet for the romantic vanity.","img":"img/ruby-dressing-set.webp","w":760,"h":760,"sheet":true},{"id":"garnet-beauty-cabinet","name":"Garnet Beauty Cabinet","desc":"Hand mirror, cosmetics, pearls and perfume in jewel tones.","img":"img/garnet-beauty-cabinet.webp","w":760,"h":760,"sheet":true},{"id":"antique-vanity-essentials","name":"Antique Vanity Essentials","desc":"Ruby, gold, ivory and pearl accessories.","img":"img/antique-vanity-essentials.webp","w":760,"h":760,"sheet":true},{"id":"open-jewelry-case","name":"Open Jewelry Case","desc":"A candlelit vanity with velvet trays and a scrapbook.","img":"img/open-jewelry-case.webp","w":760,"h":760,"sheet":false},{"id":"candlelit-vanity","name":"Candlelit Vanity","desc":"A gilded mirror, jewel trays and an open sticker album.","img":"img/candlelit-vanity.webp","w":760,"h":760,"sheet":false},{"id":"the-jewelry-cabinet","name":"The Jewelry Cabinet","desc":"Sunlit vanity, open scrapbook, treasured pieces.","img":"img/the-jewelry-cabinet.webp","w":760,"h":760,"sheet":false},{"id":"the-dressing-room","name":"The Dressing Room","desc":"A jewel box, mirror and paper keepsakes in warm light.","img":"img/the-dressing-room.webp","w":760,"h":760,"sheet":false},{"id":"the-collectors-drawer","name":"The Collector's Drawer","desc":"Chains, charms and floral cards in a velvet drawer.","img":"img/the-collectors-drawer.webp","w":760,"h":760,"sheet":false},{"id":"pressed-flower-drawer","name":"Pressed Flower Drawer","desc":"Botanical cards tucked among gold jewelry.","img":"img/pressed-flower-drawer.webp","w":760,"h":760,"sheet":false},{"id":"botanical-correspondence","name":"Botanical Correspondence","desc":"Pressed flowers and heirlooms in a mahogany drawer.","img":"img/botanical-correspondence.webp","w":760,"h":760,"sheet":false},{"id":"rosewood-keepsake-box","name":"Rosewood Keepsake Box","desc":"Vintage jewelry beside old floral letters.","img":"img/rosewood-keepsake-box.webp","w":760,"h":760,"sheet":false},{"id":"winter-wardrobe-window","name":"Winter Wardrobe Window","desc":"Three gowns in a white armoire framed by frost.","img":"img/winter-wardrobe-window.webp","w":760,"h":760,"sheet":false},{"id":"the-white-armoire","name":"The White Armoire","desc":"Emerald, garnet and ivory gowns in a carved cabinet.","img":"img/the-white-armoire.webp","w":760,"h":760,"sheet":false},{"id":"the-antique-wardrobe","name":"The Antique Wardrobe","desc":"A walnut wardrobe hung with velvet gowns.","img":"img/the-antique-wardrobe.webp","w":760,"h":760,"sheet":false},{"id":"three-gowns-armoire","name":"Three Gowns Armoire","desc":"Frost-trimmed wardrobe doors open on a winter season.","img":"img/three-gowns-armoire.webp","w":760,"h":760,"sheet":false}],"pages":[{"name":"Violet Perfume Flacon","img":"color/violet-perfume-flacon.webp"},{"name":"Ruby Dressing Set","img":"color/ruby-dressing-set.webp"},{"name":"The Jewelry Cabinet","img":"color/the-jewelry-cabinet.webp"},{"name":"Rosewood Keepsake Box","img":"color/rosewood-keepsake-box.webp"}],"pageCount":20},{"id":"gardens","name":"Garden Escapes","kind":"Landscape sticker","blurb":"Lake stairways, cypress villas, palazzo courtyards, blossom avenues and railway glasshouses.","items":[{"id":"lakeside-rose-stairway","name":"Lakeside Rose Stairway","desc":"Rose-lined steps descending to a quiet lake.","img":"img/lakeside-rose-stairway.webp","w":760,"h":760,"sheet":false},{"id":"bridal-water-steps","name":"Bridal Water Steps","desc":"A bride's train trailing down marble lake stairs.","img":"img/bridal-water-steps.webp","w":760,"h":760,"sheet":false},{"id":"gondola-garden-stairs","name":"Gondola Garden Stairs","desc":"Hydrangeas, gondolas and a lakeside staircase.","img":"img/gondola-garden-stairs.webp","w":760,"h":760,"sheet":false},{"id":"hydrangea-staircase","name":"Hydrangea Staircase","desc":"Blue blooms tumbling down stone steps to the water.","img":"img/hydrangea-staircase.webp","w":760,"h":760,"sheet":false},{"id":"lake-terrace","name":"Lake Terrace","desc":"A white parasol on a cypress terrace above the lake.","img":"img/lake-terrace.webp","w":760,"h":760,"sheet":false},{"id":"cypress-villa","name":"Cypress Villa","desc":"A golden villa among tall cypresses and roses.","img":"img/cypress-villa.webp","w":760,"h":760,"sheet":false},{"id":"seaside-villa-steps","name":"Seaside Villa Steps","desc":"Winding stairs, cypress trees and a sparkling bay.","img":"img/seaside-villa-steps.webp","w":760,"h":760,"sheet":false},{"id":"island-palazzo","name":"Island Palazzo","desc":"A palazzo on a garden island ringed by water.","img":"img/island-palazzo.webp","w":760,"h":760,"sheet":false},{"id":"tuscan-lavender-path","name":"Tuscan Lavender Path","desc":"A winding path through lavender and cypress.","img":"img/tuscan-lavender-path.webp","w":760,"h":760,"sheet":false},{"id":"cypress-garden-roundel","name":"Cypress Garden Roundel","desc":"A circular view of a hillside garden path.","img":"img/cypress-garden-roundel.webp","w":760,"h":760,"sheet":false},{"id":"golden-hour-garden-path","name":"Golden Hour Garden Path","desc":"Warm light on a curving Tuscan garden walk.","img":"img/golden-hour-garden-path.webp","w":760,"h":760,"sheet":false},{"id":"venetian-courtyard-fountain","name":"Venetian Courtyard Fountain","desc":"Rose walls, ivy and a still courtyard pool.","img":"img/venetian-courtyard-fountain.webp","w":760,"h":760,"sheet":false},{"id":"rose-arch-courtyard","name":"Rose Arch Courtyard","desc":"A sunlit archway over a reflecting pool.","img":"img/rose-arch-courtyard.webp","w":760,"h":760,"sheet":false},{"id":"ivy-palazzo-garden","name":"Ivy Palazzo Garden","desc":"A green courtyard fountain under ivy-hung walls.","img":"img/ivy-palazzo-garden.webp","w":760,"h":760,"sheet":false},{"id":"courtyard-reflection-pool","name":"Courtyard Reflection Pool","desc":"Late light on an old palazzo's water garden.","img":"img/courtyard-reflection-pool.webp","w":760,"h":760,"sheet":false},{"id":"promenade-in-bloom","name":"Promenade in Bloom","desc":"A couple strolling an avenue of flowering trees.","img":"img/promenade-in-bloom.webp","w":760,"h":760,"sheet":false},{"id":"fountain-garden-walk","name":"Fountain Garden Walk","desc":"Pink blossom arches leading to a stone fountain.","img":"img/fountain-garden-walk.webp","w":760,"h":760,"sheet":false},{"id":"rose-arbor-stroll","name":"Rose Arbor Stroll","desc":"An afternoon walk under rose-covered arbors.","img":"img/rose-arbor-stroll.webp","w":760,"h":760,"sheet":false},{"id":"parisian-garden-avenue","name":"Parisian Garden Avenue","desc":"A long blossom alley with a fountain at its end.","img":"img/parisian-garden-avenue.webp","w":760,"h":760,"sheet":false},{"id":"gilded-garden-station","name":"Gilded Garden Station","desc":"A glasshouse station with flowers, steam and a traveler.","img":"img/gilded-garden-station.webp","w":760,"h":760,"sheet":false},{"id":"glasshouse-railway-garden","name":"Glasshouse Railway Garden","desc":"A conservatory platform and a teal-clad traveler.","img":"img/glasshouse-railway-garden.webp","w":760,"h":760,"sheet":false},{"id":"flower-station-journey","name":"Flower Station Journey","desc":"A sunlit botanical platform with flowers and luggage.","img":"img/flower-station-journey.webp","w":760,"h":760,"sheet":false},{"id":"walled-garden-reader","name":"Walled Garden Reader","desc":"A lavender gown reading on English garden steps.","img":"img/walled-garden-reader.webp","w":760,"h":760,"sheet":false},{"id":"the-walled-garden","name":"The Walled Garden","desc":"Delphiniums, roses and a quiet book by the glasshouse.","img":"img/the-walled-garden.webp","w":760,"h":760,"sheet":false}],"pages":[{"name":"Lakeside Rose Stairway","img":"color/lakeside-rose-stairway.webp"},{"name":"Seaside Villa Steps","img":"color/seaside-villa-steps.webp"},{"name":"Rose Arch Courtyard","img":"color/rose-arch-courtyard.webp"},{"name":"Parisian Garden Avenue","img":"color/parisian-garden-avenue.webp"}],"pageCount":24},{"id":"winter-frames","name":"Enchanted Winter","kind":"Framed scene","blurb":"Snow villages in gilded mirrors, frosted glasshouses and amethyst forest portals.","items":[{"id":"snow-village-frame","name":"Snow Village Frame","desc":"A lamplit village inside a gilded mirror frame.","img":"img/snow-village-frame.webp","w":760,"h":760,"sheet":false},{"id":"silver-mirror-village","name":"Silver Mirror Village","desc":"Cottage windows glowing in a silver scroll frame.","img":"img/silver-mirror-village.webp","w":760,"h":760,"sheet":false},{"id":"alpine-village-oval","name":"Alpine Village Oval","desc":"A mountain hamlet inside an ornate oval.","img":"img/alpine-village-oval.webp","w":760,"h":760,"sheet":false},{"id":"little-winter-hamlet","name":"Little Winter Hamlet","desc":"A tiny snowbound village with a crisp sticker edge.","img":"img/little-winter-hamlet.webp","w":760,"h":760,"sheet":false},{"id":"frosted-glasshouse","name":"Frosted Glasshouse","desc":"A lamplit glasshouse glowing in a snowbound forest.","img":"img/frosted-glasshouse.webp","w":760,"h":760,"sheet":false},{"id":"glasshouse-in-the-pines","name":"Glasshouse in the Pines","desc":"A teal gown before a crystal conservatory at dusk.","img":"img/glasshouse-in-the-pines.webp","w":760,"h":760,"sheet":false},{"id":"lamplit-conservatory","name":"Lamplit Conservatory","desc":"Arched glass, candlelight and a figure in winter blue.","img":"img/lamplit-conservatory.webp","w":760,"h":760,"sheet":false},{"id":"winter-glasshouse-interior","name":"Winter Glasshouse Interior","desc":"Frosted trees under a soaring iron-and-glass dome.","img":"img/winter-glasshouse-interior.webp","w":760,"h":760,"sheet":false},{"id":"amethyst-winter-frame","name":"Amethyst Winter Frame","desc":"A purple gem frame opening onto a lavender forest.","img":"img/amethyst-winter-frame.webp","w":760,"h":760,"sheet":false},{"id":"violet-forest-portal","name":"Violet Forest Portal","desc":"An amethyst arch framing a luminous woodland path.","img":"img/violet-forest-portal.webp","w":760,"h":760,"sheet":false},{"id":"amethyst-snowfield","name":"Amethyst Snowfield","desc":"A silver scroll frame around violet snowy pines.","img":"img/amethyst-snowfield.webp","w":760,"h":760,"sheet":false},{"id":"twilight-amethyst-mirror","name":"Twilight Amethyst Mirror","desc":"A dark mirror frame holding a dusk forest.","img":"img/twilight-amethyst-mirror.webp","w":760,"h":760,"sheet":false}],"pages":[{"name":"Snow Village Frame","img":"color/snow-village-frame.webp"},{"name":"Little Winter Hamlet","img":"color/little-winter-hamlet.webp"},{"name":"Lamplit Conservatory","img":"color/lamplit-conservatory.webp"},{"name":"Violet Forest Portal","img":"color/violet-forest-portal.webp"}],"pageCount":12},{"id":"ephemera","name":"Paper Ephemera","kind":"Sticker sheet","blurb":"Paper-doll sheets, Paris shop collages and postcard bundles for journal spreads.","items":[{"id":"garden-party-paper-dolls","name":"Garden Party Paper Dolls","desc":"Gowns, parasols, fans and garden follies on one sheet.","img":"img/garden-party-paper-dolls.webp","w":760,"h":760,"sheet":true},{"id":"rose-ball-gown-sheet","name":"Rose Ball Gown Sheet","desc":"Blush gowns, gloves, bonnets and a conservatory.","img":"img/rose-ball-gown-sheet.webp","w":760,"h":760,"sheet":true},{"id":"lilac-wardrobe-sheet","name":"Lilac Wardrobe Sheet","desc":"Pastel dresses, cameos and garden pavilions.","img":"img/lilac-wardrobe-sheet.webp","w":760,"h":760,"sheet":true},{"id":"conservatory-paper-dolls","name":"Conservatory Paper Dolls","desc":"Gowns, roses and a glasshouse for scrapbook pages.","img":"img/conservatory-paper-dolls.webp","w":760,"h":760,"sheet":true},{"id":"paris-perfumery-collage","name":"Paris Perfumery Collage","desc":"A crimson shopfront, emerald brooch and perfume.","img":"img/paris-perfumery-collage.webp","w":760,"h":760,"sheet":false},{"id":"emerald-shopfront-collage","name":"Emerald Shopfront Collage","desc":"A Parisian boutique with a pink flacon.","img":"img/emerald-shopfront-collage.webp","w":760,"h":760,"sheet":false},{"id":"eiffel-boutique-collage","name":"Eiffel Boutique Collage","desc":"Haussmann façade, Eiffel Tower and a jewel.","img":"img/eiffel-boutique-collage.webp","w":760,"h":760,"sheet":false},{"id":"parisian-souvenir-collage","name":"Parisian Souvenir Collage","desc":"Postcards, a brooch and a little perfume shop.","img":"img/parisian-souvenir-collage.webp","w":760,"h":760,"sheet":false},{"id":"seaside-postcard-stack","name":"Seaside Postcard Stack","desc":"Coastal postcards, lace and a pearl charm.","img":"img/seaside-postcard-stack.webp","w":760,"h":760,"sheet":false},{"id":"venice-postcard-bundle","name":"Venice Postcard Bundle","desc":"Canal views tied with lace and pearls.","img":"img/venice-postcard-bundle.webp","w":760,"h":760,"sheet":false},{"id":"pearls-postcards","name":"Pearls & Postcards","desc":"A souvenir bundle of pastel travel cards.","img":"img/pearls-postcards.webp","w":760,"h":760,"sheet":false},{"id":"pastel-travel-notes","name":"Pastel Travel Notes","desc":"Soft-blue postcards and a gold rose button.","img":"img/pastel-travel-notes.webp","w":760,"h":760,"sheet":false}],"pages":[{"name":"Garden Party Paper Dolls","img":"color/garden-party-paper-dolls.webp"},{"name":"Conservatory Paper Dolls","img":"color/conservatory-paper-dolls.webp"},{"name":"Eiffel Boutique Collage","img":"color/eiffel-boutique-collage.webp"},{"name":"Venice Postcard Bundle","img":"color/venice-postcard-bundle.webp"}],"pageCount":12}];
+/* ==================================================== */
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=n=>n.toLocaleString("en-US",{style:"currency",currency:SHOP.currency});
+const ROMAN=["I","II","III","IV","V","VI","VII","VIII","IX","X"];
+const ALL=CATALOG.flatMap(c=>c.items.map(it=>({...it,col:c})));
+const priceOf=it=>it.sheet?SHOP.sheetPrice:SHOP.stickerPrice;
+const packPrice=c=>Math.round(c.items.reduce((s,it)=>s+priceOf(it),0)*(1-SHOP.collectionDiscount)*100)/100;
+const bookPrice=c=>c.pageCount>=20?SHOP.bigBookPrice:SHOP.bookPrice;
+const totalBooks=CATALOG.reduce((s,c)=>s+bookPrice(c),0);
+
+/* ---------- basket (kept in this browser) ---------- */
+let basket=[];
+try{basket=JSON.parse(localStorage.getItem("yvf-basket")||"[]")||[]}catch(_){basket=[]}
+function save(){try{localStorage.setItem("yvf-basket",JSON.stringify(basket))}catch(_){}}
+const inBasket=key=>basket.some(b=>b.key===key);
+function product(key){
+  const [type,id]=key.split(":");
+  if(type==="s"){const it=ALL.find(x=>x.id===id);return it&&{key,name:it.name,kind:it.sheet?"Sticker sheet":"Sticker",price:priceOf(it),img:it.img}}
+  if(type==="p"){const c=CATALOG.find(x=>x.id===id);return c&&{key,name:c.name+" — full collection",kind:c.items.length+" stickers",price:packPrice(c),img:c.items[0].img}}
+  if(type==="b"){const c=CATALOG.find(x=>x.id===id);return c&&{key,name:c.name+" Coloring Book",kind:c.pageCount+" pages · PDF",price:bookPrice(c),book:c.id}}
+  if(type==="l") return {key,name:"The Complete Coloring Library",kind:CATALOG.length+" books · "+CATALOG.reduce((s,c)=>s+c.pageCount,0)+" pages",price:SHOP.libraryPrice,book:"ephemera"};
+}
+function toggle(key){
+  if(inBasket(key)){basket=basket.filter(b=>b.key!==key);toast("Removed from basket")}
+  else{basket.push({key});toast(product(key).name+" added")}
+  save();refreshBasket();syncButtons();
+}
+function syncButtons(){document.querySelectorAll("[data-add]").forEach(b=>{const on=inBasket(b.dataset.add);b.setAttribute("aria-pressed",on);b.textContent=on?(b.dataset.on||"In basket ✓"):(b.dataset.off||"Add")})}
+function refreshBasket(){
+  const lines=basket.map(b=>product(b.key)).filter(Boolean);
+  $("#count").textContent=lines.length;
+  const total=lines.reduce((s,l)=>s+l.price,0);
+  $("#lines").innerHTML=lines.length?lines.map(l=>`<div class="line">
+      <div class="t${l.book?" bk":""}" ${l.book?`style="--bookc:${BOOK_COLORS[l.book]}"`:""}>${l.img?`<img alt="" src="${l.img}">`:""}</div>
+      <div><div class="nm">${esc(l.name)}</div><div class="k">${esc(l.kind)}</div></div>
+      <div class="r"><span class="price">${fmt(l.price)}</span><button class="linkish" data-rm="${l.key}" type="button">Remove</button></div></div>`).join("")
+    :`<p class="note" style="padding:24px 0">Your basket is empty. Tap <strong>Add</strong> on any sticker, collection or coloring book.</p>`;
+  const summary=lines.map(l=>`• ${l.name} (${fmt(l.price)})`).join("\n")+`\nTotal: ${fmt(total)}`;
+  $("#bFoot").innerHTML=`<div class="sum"><span class="eyebrow" style="color:var(--ink-soft)">Total</span><b class="price">${fmt(total)}</b></div>`+
+    (lines.length?(SHOP.checkoutUrl?`<a class="btn" href="${esc(SHOP.checkoutUrl)}" target="_blank" rel="noopener">Continue to checkout</a>`:
+      `<p class="note">Online checkout is opening soon. To order now, copy your list and email it to <strong>${esc(SHOP.email)}</strong>; we'll reply with a payment link and your downloads.</p>
+       <div class="order" id="orderText">${esc(summary)}</div>
+       <button class="btn" id="copyOrder" type="button">Copy my order</button>`)+
+      `<button class="linkish" id="clearB" type="button" style="justify-self:center">Empty basket</button>`:"");
+}
+$("#lines").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(b)toggle(b.dataset.rm)});
+$("#bFoot").addEventListener("click",e=>{
+  if(e.target.id==="clearB"){basket=[];save();refreshBasket();syncButtons()}
+  if(e.target.id==="copyOrder")copyText($("#orderText").textContent,$("#orderText"),"Order copied");
+});
+
+/* ---------- overlays ---------- */
+let lastFocus=null;
+function openLayer(el){lastFocus=document.activeElement;$("#veil").hidden=false;el.hidden=false;document.body.style.overflow="hidden";const f=el.querySelector("button");f&&f.focus()}
+function closeLayers(){$("#veil").hidden=true;$("#viewer").hidden=true;$("#basket").hidden=true;document.body.style.overflow="";lastFocus&&lastFocus.focus&&lastFocus.focus()}
+$("#veil").onclick=closeLayers;
+$("#viewer").addEventListener("click",e=>{if(e.target.id==="viewer")closeLayers()});
+$("#openBasket").onclick=()=>{refreshBasket();openLayer($("#basket"))};
+$("#closeBasket").onclick=closeLayers;
+
+/* ---------- sticker shop ---------- */
+let active="all",query="",shown=24,list=[],vIdx=0;
+try{const s=localStorage.getItem("yvf-drawer");if(s&&(s==="all"||CATALOG.some(c=>c.id===s)))active=s}catch(_){}
+function drawers(){
+  $("#drawers").innerHTML=`<button class="drawer" data-id="all" aria-pressed="${active==="all"}"><span class="no">Whole cabinet</span><span class="nm">All stickers</span><span class="ct">${ALL.length} designs</span></button>`+
+    CATALOG.map((c,i)=>`<button class="drawer" data-id="${c.id}" aria-pressed="${active===c.id}"><span class="no">Drawer ${ROMAN[i]}</span><span class="nm">${esc(c.name)}</span><span class="ct">${c.items.length} designs</span></button>`).join("");
+}
+function renderStickers(){
+  drawers();
+  const col=CATALOG.find(c=>c.id===active);
+  const q=query.trim().toLowerCase();
+  list=(col?col.items.map(it=>({...it,col})):ALL).filter(it=>!q||(it.name+" "+it.desc+" "+it.col.name+" "+it.col.kind).toLowerCase().includes(q));
+  if(col){
+    const full=col.items.reduce((s,it)=>s+priceOf(it),0);
+    $("#plate").innerHTML=`<div><h3>${esc(col.name)}</h3><p>${esc(col.blurb)}</p></div>
+      <div class="side"><span class="save">Whole drawer <span class="price">${fmt(packPrice(col))}</span> instead of <s class="price">${fmt(full)}</s></span>
+      <button class="btn sm" data-add="p:${col.id}" data-off="Add the collection" data-on="Collection in basket ✓" type="button"></button></div>`;
+  } else {
+    $("#plate").innerHTML=`<div><h3>All stickers</h3><p>Seven collections, from the Grand Tour to the Jewel Box. Singles are ${fmt(SHOP.stickerPrice)}; full sticker sheets ${fmt(SHOP.sheetPrice)}.</p></div><div class="side"><span class="tally">${list.length} designs${q?" found":""}</span></div>`;
+  }
+  const vis=list.slice(0,shown);
+  $("#album").innerHTML=vis.length?vis.map((it,i)=>{
+    const tilt=((i*37)%7-3)*.55;
+    return `<article class="sticker">
+      <button class="die" data-i="${i}" style="--tilt:${tilt}deg" aria-label="View ${esc(it.name)}"><img loading="lazy" src="${it.img}" width="${it.w}" height="${it.h}" alt="${esc(it.desc)}"><span class="peel"></span></button>
+      <div><div class="kind">${esc(it.sheet?"Sticker sheet":it.col.kind)}</div><h4>${esc(it.name)}</h4></div>
+      <div class="row"><span class="price">${fmt(priceOf(it))}</span><button class="btn sm" data-add="s:${it.id}" type="button"></button></div></article>`}).join("")
+    :`<div class="empty">No stickers match “${esc(query)}”. Try <em>rose</em>, <em>locket</em> or <em>Paris</em>.</div>`;
+  $("#moreWrap").hidden=list.length<=shown;
+  $("#more").textContent=`Show more stickers (${list.length-shown} left)`;
+  syncButtons();
+}
+$("#drawers").addEventListener("click",e=>{const b=e.target.closest(".drawer");if(!b)return;active=b.dataset.id;shown=24;try{localStorage.setItem("yvf-drawer",active)}catch(_){}renderStickers()});
+$("#q").addEventListener("input",e=>{query=e.target.value;shown=24;renderStickers()});
+$("#more").onclick=()=>{shown+=24;renderStickers()};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(b)toggle(b.dataset.add)});
+$("#album").addEventListener("click",e=>{const d=e.target.closest(".die");if(d)openSticker(+d.dataset.i)});
+
+function openSticker(i){
+  vIdx=(i+list.length)%list.length;const it=list[vIdx];
+  $("#vCard").className="card";
+  $("#vCard").innerHTML=`<div class="pic"><div class="frame"><img src="${it.img}" alt="${esc(it.desc)}"></div></div>
+   <div class="txt"><button class="linkish" data-close style="justify-self:end" type="button">Close ✕</button>
+    <div class="eyebrow">${esc(it.sheet?"Sticker sheet":it.col.kind)}</div><h3 id="vTitle">${esc(it.name)}</h3>
+    <p style="margin:0;color:var(--ink-soft)">${esc(it.desc)}</p>
+    <dl><dt>Collection</dt><dd>${esc(it.col.name)}</dd><dt>File</dt><dd>PNG, die-cut edge, 300 dpi</dd><dt>Prints up to</dt><dd>4 in / 10 cm</dd></dl>
+    <div class="row"><span class="price" style="font-size:1.4rem">${fmt(priceOf(it))}</span><button class="btn" data-add="s:${it.id}" type="button"></button></div>
+    <div class="nav"><button class="linkish" data-step="-1" type="button">← Previous</button><span class="linkish" style="cursor:default">${vIdx+1} of ${list.length}</span><button class="linkish" data-step="1" type="button">Next →</button></div></div>`;
+  syncButtons();
+  if($("#viewer").hidden)openLayer($("#viewer"));
+}
+$("#vCard").addEventListener("click",e=>{
+  if(e.target.closest("[data-close]"))closeLayers();
+  const s=e.target.closest("[data-step]");if(s)openSticker(vIdx+ +s.dataset.step);
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&(!$("#viewer").hidden||!$("#basket").hidden))closeLayers();
+  if(!$("#viewer").hidden&&$("#vCard").dataset.mode!=="book"){if(e.key==="ArrowLeft")openSticker(vIdx-1);if(e.key==="ArrowRight")openSticker(vIdx+1)}
+});
+
+/* ---------- coloring books ---------- */
+function renderBooks(){
+  $("#books").innerHTML=CATALOG.map(c=>`<article class="book">
+    <button class="cover" data-book="${c.id}" style="--bookc:${BOOK_COLORS[c.id]}" aria-label="Look inside ${esc(c.name)} coloring book">
+      <div class="inner"><div><div class="sub">A coloring book</div><div class="t">${esc(c.name)}</div></div>
+      <div class="art"><img loading="lazy" src="${c.pages[0].img}" alt=""></div><div class="sub">${c.pageCount} pages to color</div></div></button>
+    <div class="meta"><h4 style="font-size:1.3rem">${esc(c.name)}</h4><span class="price">${fmt(bookPrice(c))}</span></div>
+    <p>${c.pageCount} line-art pages from the ${esc(c.name)} sticker collection.</p>
+    <div class="acts"><button class="btn ghost sm" data-book="${c.id}" type="button">Look inside</button><button class="btn sm" data-add="b:${c.id}" type="button"></button></div></article>`).join("");
+  const pages=CATALOG.reduce((s,c)=>s+c.pageCount,0);
+  $("#library").innerHTML=`<div class="stack">${CATALOG.map(c=>`<span style="--bookc:${BOOK_COLORS[c.id]}"></span>`).join("")}</div>
+    <div><div class="eyebrow">Best value</div><h3>The Complete Coloring Library</h3><p>All ${CATALOG.length} books, ${pages} pages, for <span class="price">${fmt(SHOP.libraryPrice)}</span> instead of <s class="price">${fmt(totalBooks)}</s>.</p></div>
+    <button class="btn" data-add="l:all" data-off="Add the library" data-on="Library in basket ✓" type="button"></button>`;
+  syncButtons();
+}
+$("#books").addEventListener("click",e=>{const b=e.target.closest("[data-book]");if(b)openBook(b.dataset.book)});
+function openBook(id){
+  const c=CATALOG.find(x=>x.id===id);
+  $("#vCard").className="card wide";$("#vCard").dataset.mode="book";
+  $("#vCard").innerHTML=`<div class="txt"><button class="linkish" data-close style="justify-self:end" type="button">Close ✕</button>
+    <div class="eyebrow">Coloring book · ${c.pageCount} pages</div><h3 id="vTitle">${esc(c.name)}</h3>
+    <p style="margin:0;color:var(--ink-soft)">${esc(c.blurb)} Four sample pages are shown below.</p>
+    <div class="pages">${c.pages.map(p=>`<figure><img loading="lazy" src="${p.img}" alt="Line-art coloring page: ${esc(p.name)}"><figcaption>${esc(p.name)}</figcaption></figure>`).join("")}</div>
+    <dl><dt>Format</dt><dd>Printable PDF, US Letter and A4</dd><dt>Pages</dt><dd>${c.pageCount}, single-sided</dd></dl>
+    <div class="row"><span class="price" style="font-size:1.4rem">${fmt(bookPrice(c))}</span><button class="btn" data-add="b:${c.id}" type="button"></button></div></div>`;
+  syncButtons();openLayer($("#viewer"));
+}
+const _openSticker=openSticker;openSticker=i=>{$("#vCard").dataset.mode="";_openSticker(i)};
+
+/* ---------- misc ---------- */
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,1800)}
+function copyText(t,node,msg){
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(node);const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Selected. Press copy to finish")};
+  try{navigator.clipboard.writeText(t).then(()=>toast(msg),sel)}catch(_){sel()}
+}
+$("#copyMail").onclick=()=>copyText(SHOP.email,$("#mail"),"Email copied");
+$("#mail").textContent=SHOP.email;
+$("#facts").innerHTML=`<div><b>${ALL.length}</b><span>Sticker designs</span></div><div><b>${CATALOG.length}</b><span>Collections</span></div><div><b>${CATALOG.length}</b><span>Coloring books</span></div>`;
+$("#cSt").textContent=`${ALL.length} die-cut designs in ${CATALOG.length} collections, from ${fmt(SHOP.stickerPrice)}`;
+$("#cCo").textContent=`${CATALOG.length} line-art books from ${fmt(SHOP.bookPrice)}, or all of them for ${fmt(SHOP.libraryPrice)}`;
+$("#coThumb").src=CATALOG[2].pages[1].img;
+renderStickers();renderBooks();refreshBasket();
+</script>
